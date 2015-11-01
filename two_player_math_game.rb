@@ -42,7 +42,7 @@ def player_life(player)
     @player_one_lives -=1
     puts "#{player}, you have #{@player_one_lives} lives left"
   end
-  if player == @player_two
+  if player == @player_t
     @player_two_lives -=1
     puts "#{player}, you have #{@player_two_lives} lives left"
   end
