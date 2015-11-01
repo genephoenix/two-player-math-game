@@ -23,10 +23,10 @@ class Game
   def verify_answer(current_player)
     puts "#{current_player.name}, let us check if your answer is correct."
     if @player_answer == @correct_answer
-      puts "#{current_player.name}, you were correct!"
+      puts "#{current_player.name}, you were correct!".colorize(:green)
       current_player.score += 1
     else
-      puts "#{current_player.name}, oh no! You've lost a life!"
+      puts "#{current_player.name}, oh no! You've lost a life!".colorize(:red)
       current_player.life -= 1
       current_player.score
     end

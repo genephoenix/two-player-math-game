@@ -1,3 +1,5 @@
+require 'colorize'
+
 @player_one_lives = 3
 @player_two_lives = 3
 @user_answer = " "
@@ -30,9 +32,9 @@ end
 
 def verify_answer
   if @sum == @user_answer.to_i  
-    puts "#{@current_player}, you were correct!"
+    puts "#{@current_player}, you were correct!".colorize(:green)
   else
-    puts "#{@current_player}, oh no! You've lost a life!"
+    puts "#{@current_player}, oh no! You've lost a life!".colorize(:red)
     player_life(@current_player)
   end
 end
