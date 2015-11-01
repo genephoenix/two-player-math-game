@@ -10,6 +10,7 @@ class Player
 end
 
 puts "Player one, please provide your name:"
-@player_one = gets.chomp
+@player_one_name = gets.chomp
 puts "Player two, please provide your name:"
-@player_two = gets.chomp
+@player_two_name = gets.chomp
+

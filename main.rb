@@ -4,14 +4,9 @@ require 'colorize'
 
 
 
-class Main
-  def play_game
-
-  end
-end
 
 
-
-#game = Game.new(@player_one, @player_two)
+#game = Game.new(@player_one_name, @player_two_name)
+#puts verify_answer(@current_player)
 
 # game1.callmethod
