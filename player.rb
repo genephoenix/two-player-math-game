@@ -1,6 +1,6 @@
 class Player
-  attr_accessor :name
-  attr_reader :life, :score
+  attr_accessor :name, :life, :score
+  # attr_reader :life, :score
 
   def initialize(name)
     @name = name
@@ -9,8 +9,13 @@ class Player
   end
 end
 
-puts "Player one, please provide your name:"
-@player_one_name = gets.chomp
-puts "Player two, please provide your name:"
-@player_two_name = gets.chomp
+#The following code was placed in the game class
 
+# puts "Player one, please provide your name:"
+# @player_one_name = gets.chomp
+# puts "Player two, please provide your name:"
+# @player_two_name = gets.chomp
+
+
+# player_one = Player.new(@player_one_name)
+# player_two = Player.new(@player_two_name)

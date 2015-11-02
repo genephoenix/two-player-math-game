@@ -6,7 +6,12 @@ require 'colorize'
 
 
 
-#game = Game.new(@player_one_name, @player_two_name)
+game = Game.new(@player_one, @player_two)
+
+puts game.turns
+
 #puts verify_answer(@current_player)
 
-# game1.callmethod
+#game.callmethod
+
+
