@@ -42,13 +42,14 @@ class Game
   end
 
   def switch_player
-  puts "==== SWITCH PLAYER ===="
-  if @current_player == @player_one
-    @current_player = @player_two
-  else
-    @current_player = @player_one
+    puts "==== SWITCH PLAYER ===="
+    if @current_player == @player_one
+      @current_player = @player_two
+    else
+      @current_player = @player_one
+    end
   end
-end
+  
 
   def turns
     while @player_one.life > 0 && @player_two.life > 0 do
@@ -58,10 +59,21 @@ end
       switch_player
     end
     if @player_one.life == 0 || @player_two.life == 0
-      puts "===== END GAME ====="
+      puts "==== END GAME ===="
       puts "The score for #{@player_one.name} is #{@player_one.score}"
-      puts "The score for #{@player_two.name} is #{@player_two.score}" 
+      puts "The score for #{@player_two.name} is #{@player_two.score}"
+      puts "===== REPLAY? ====="
+      replay? 
     end
+  end
+
+  def replay?
+    @player_one.life = 3
+    @player_two.life = 3
+    puts "Players, would you like to keep playing the game?"
+    reply = gets.chomp.downcase
+    turns if reply == "yes"
+    puts "===END GAME ====" if reply == "no"
   end
 end
 
