@@ -3,16 +3,17 @@ require_relative 'player'
 class Game 
   attr_accessor :player_one, :player_two, :current_player, :player_answer
 
-  puts "Player one, please provide your name:"
-  @player_one_name = gets.chomp
-  puts "Player two, please provide your name:"
-  @player_two_name = gets.chomp
-
-  def initialize(player_one,player_two)
-    @player_one = Player.new(@player_one_name)
-    @player_two = Player.new(@player_two_name)
+  def initialize
+    @player_one = Player.new(get_name("one"))
+    @player_two = Player.new(get_name("two"))
     @current_player = @player_one
-    @player_answer = ""
+    @player_answer = " "
+  end
+
+  def get_name(player)
+    puts "Player #{player}, please provide your name:"
+    user_name = gets.chomp
+    user_name
   end
 
   def generate_question
@@ -64,4 +65,3 @@ end
   end
 end
 
-# ----
