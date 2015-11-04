@@ -11,9 +11,17 @@ class Game
   end
 
   def get_name(player)
-    puts "Player #{player}, please provide your name:"
-    user_name = gets.chomp
-    user_name
+    begin
+      puts "Player #{player}, please provide your name:"
+      user_name = gets.chomp
+      if user_name == ""
+        raise InvalidNameError, "Don't forget to enter a name!"
+      end
+      user_name
+    rescue InvalidNameError => e
+      puts e
+      get_name(player)
+    end
   end
 
   def generate_question
@@ -24,8 +32,17 @@ class Game
   end
 
   def ask_question(current_player)
-    puts "#{current_player.name}, what is the answer to: #{@number_one} #{@operator} #{@number_two}?"
-    @player_answer = gets.chomp
+    begin
+      puts "#{current_player.name}, what is the answer to: #{@number_one} #{@operator} #{@number_two}?"
+      @player_answer = gets.chomp
+
+      if !player_answer.match(/^-?\d*\.{0,1}\d+$/)
+        raise InvalidGuessError, "Error! You have not entered a number"
+      end
+    rescue InvalidGuessError => e 
+      puts  e 
+      ask_question(current_player)
+    end
   end
 
   def verify_answer(current_player)
@@ -42,7 +59,7 @@ class Game
   end
 
   def switch_player
-    puts "==== SWITCH PLAYER ===="
+    puts "==== SWITCH PLAYER ===="    
     if @current_player == @player_one
       @current_player = @player_two
     else
